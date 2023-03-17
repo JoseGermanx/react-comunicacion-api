@@ -3,6 +3,8 @@ import "./index.css";
 import { CountriesAPI } from "../src/api/countries-api";
 import CountriesList from "./components/CountriesList/CountriesList";
 import CountriesDetail from "./components/CountriesDetail/CountriesDetail";
+import SearchBar from "./components/SearchBar/SearchBar";
+import Logo from "./components/Logo/Logo";
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
@@ -15,22 +17,33 @@ function App() {
     }
   }
 
-  useEffect (() => {
-    if(selectedCountry){
-      setSelectedCountry(selectedCountry)
-
+  async function fetchByTitle(title) {
+    const searchResponse = await CountriesAPI.fetchByName(title);
+    try {
+      if (searchResponse.length > 0) {
+        setAllCountries(searchResponse);
+      }
+    } catch (error) {
+      alert("No se encontró ese país");
     }
-   
-  }, [selectedCountry])
+  }
+
+  useEffect(() => {
+    if (selectedCountry) {
+      setSelectedCountry(selectedCountry);
+    }
+  }, [selectedCountry]);
 
   return (
     <div className="App">
       <div>
+        <Logo />
         <p>
           <h2>Busca un país y encuentra sus datos mas relevantes</h2>
         </p>
+        <SearchBar onSubmit={fetchByTitle} />
         <p>También puede ver la lista completa de paises</p>
-        <div >
+        <div>
           {!allCountries.length ? (
             <input
               type="button"
@@ -45,9 +58,10 @@ function App() {
             />
           )}
         </div>
-        <div >{ selectedCountry && <CountriesDetail countrie={selectedCountry}/> }</div>
-        { allCountries.length !== 0 && <CountriesList countrie={allCountries} /> }      
-        
+        <div>
+          {selectedCountry && <CountriesDetail countrie={selectedCountry} />}
+        </div>
+        {allCountries.length !== 0 && <CountriesList countrie={allCountries} />}
       </div>
     </div>
   );
