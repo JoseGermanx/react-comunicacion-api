@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
 import { CountriesAPI } from "../src/api/countries-api";
 import CountriesList from "./components/CountriesList/CountriesList";
+import CountriesDetail from "./components/CountriesDetail/CountriesDetail";
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState();
 
   async function fetchAllCountries() {
     const countries = await CountriesAPI.fetchAllCountries();
@@ -12,6 +14,14 @@ function App() {
       setAllCountries(countries);
     }
   }
+
+  useEffect (() => {
+    if(selectedCountry){
+      setSelectedCountry(selectedCountry)
+
+    }
+   
+  }, [selectedCountry])
 
   return (
     <div className="App">
@@ -35,17 +45,9 @@ function App() {
             />
           )}
         </div>
-        {/* {allCountries.map((country) => {
-          return (
-            <div key={country.id} className={s.countrie} onClick={() => onClickHandler(country)}>
-              <img src={country.flags.png} alt={country.name.common} className={s.img_countrie}/>
-              <p>{country.name.common}</p>
-            </div>
-          );
-        })} */}
-        { allCountries.length !== 0 && <CountriesList countrie={allCountries} /> }
+        <div >{ selectedCountry && <CountriesDetail countrie={selectedCountry}/> }</div>
+        { allCountries.length !== 0 && <CountriesList countrie={allCountries} /> }      
         
-        {/* <CountriesDetail />  */}
       </div>
     </div>
   );

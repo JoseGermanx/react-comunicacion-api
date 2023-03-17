@@ -1,29 +1,29 @@
 import React from "react";
 
-export default function CountriesDetail({ country }) {
+export default function CountriesDetail({ countrie }) {
   return (
     <div>
       <div>
-        {country.name.common}
-        <h3>Capital: {country.capital}</h3>
+        {countrie.name.common}
+        <h3>Capital: {countrie.capital}</h3>
         <div className="bloque-der">
           <div>
             <span>
-              <h2>Datos relevantes sobre {country.name.common}</h2>
+              <h2>Datos relevantes sobre {countrie.name.common}</h2>
             </span>
           </div>
           <div className="span-text">
             <span>
-              Continente:&nbsp;<p>{country.continente}</p>
+              Continente:&nbsp;<p>{countrie.continente}</p>
             </span>
             <span>
-              Región:&nbsp;<p>{country.subregion}</p>
+              Región:&nbsp;<p>{countrie.subregion}</p>
             </span>
             <span>
-              Población:&nbsp;<p>{country.poblacion} habitantes</p>
+              Población:&nbsp;<p>{countrie.poblacion} habitantes</p>
             </span>
             <span>
-              Área:&nbsp;<p>{country.area} km2</p>
+              Área:&nbsp;<p>{countrie.area} km2</p>
             </span>
           </div>
         </div>
