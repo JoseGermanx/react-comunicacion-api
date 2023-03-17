@@ -1,0 +1,38 @@
+.countries_list_container {
+    padding: 20px;
+   
+    
+}
+
+.countries_list_buttons {
+    display: flex;
+    align-items: center;
+}
+
+.countries_list_buttons input{
+
+    background-color: rgb(98, 125, 182);
+    color: rgb(252, 252, 252);
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.countries_list {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 15px;
+    margin: 5%;
+
+}
+
+.countrie {
+    padding: 10px;
+}
+
+.img_countrie {
+    width: 150px;
+}
