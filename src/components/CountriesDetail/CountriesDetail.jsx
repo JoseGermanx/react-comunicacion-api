@@ -9,7 +9,7 @@ export default function CountriesDetalles({ countrie }) {
       { detail.map((detail) => {
         return (
         <div key={detail.id}>
-        {/* <h1>{detail.name.common}</h1> */}
+        <h1>{detail.name.common}</h1>
         <img
           src={detail.flags.png}
           alt="Pais"       
@@ -18,7 +18,7 @@ export default function CountriesDetalles({ countrie }) {
         <div>
           <div>
             <span>
-              {/* <h2>Datos relevantes sobre {detail.name.common}</h2> */}
+              <h2>Datos relevantes sobre {detail.name.common}</h2>
             </span>
           </div>
           <div>
