@@ -7,7 +7,6 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import Logo from "./components/Logo/Logo";
 
 function App() {
-  const [cargaCountries, setCargaCountries] = useState([])
   const [allCountries, setAllCountries] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   
@@ -16,6 +15,7 @@ function App() {
     const countries = await CountriesAPI.fetchAllCountries();
     if (countries.length > 0) {
       setAllCountries(countries);
+      setSearchResult([]);
     }
   }
 
@@ -24,6 +24,7 @@ function App() {
     console.log("Search ",searchResponse)    
       if (searchResponse) {
         setSearchResult(searchResponse);
+        setAllCountries([])
       }
       console.log("Result ", searchResult)
   }
@@ -44,7 +45,7 @@ function App() {
         </p>
         <SearchBar onSubmit={fetchByTitle} />
         <div>        
-          {!allCountries.length || !searchResult.length ? (
+          {!allCountries.length ? (
             <div>
               <p>También puede ver la lista completa de paises</p>
             <input
@@ -57,16 +58,17 @@ function App() {
             <input
               type="button"
               value="Borrar resultados"
-              onClick={() => setAllCountries([])}
+              onClick={() => {setAllCountries([]); setSearchResult([])}}
             />
           )}
           </div>
         </div>
-        <div className="container-resultados">
+        <div className="container-resultados-list">
         {allCountries.length !== 0 && <CountriesList countrie={allCountries} />}
-        {searchResult.length ? (<CountriesDetail countrie={searchResult} />): (<></>)}
-
-        </div>       
+        </div>     
+        <div className="container-resultados-search">
+        {searchResult.length !== 0 && <CountriesDetail countrie={searchResult} /> }
+        </div> 
       </div>
     </div>
   );

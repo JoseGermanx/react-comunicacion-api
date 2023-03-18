@@ -6,9 +6,14 @@ export default function CountriesDetalles({ countrie }) {
   console.log(detail)
   return (
     <div>
-      { detail && detail.map(() => {
+      { detail.map((detail) => {
+        return (
         <div key={detail.id}>
         {/* <h1>{detail.name.common}</h1> */}
+        <img
+          src={detail.flags.png}
+          alt="Pais"       
+        />
         <h3>Capital: {detail.capital}</h3>
         <div>
           <div>
@@ -18,22 +23,25 @@ export default function CountriesDetalles({ countrie }) {
           </div>
           <div>
             <span>
-              Continente:&nbsp;<p>{detail.continente}</p>
+              Continente:&nbsp;<p>{detail.continents[0]}</p>
             </span>
             <span>
-              Región:&nbsp;<p>{detail.subregion}</p>
+              Región:&nbsp;<p>{detail.region}</p>
             </span>
             <span>
-              Población:&nbsp;<p>{detail.poblacion} habitantes</p>
+              Población:&nbsp;<p>{detail.population} habitantes</p>
             </span>
             <span>
               Área:&nbsp;<p>{detail.area} km2</p>
+            </span>
+            <span>
+              Ubicación:&nbsp;<a href={detail.maps.googleMaps}>Link a Google Maps</a>
             </span>
           </div>
         </div>
       </div>
         
-        })}
+        )})}
       
     </div>
   );
