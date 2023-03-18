@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./index.css";
+import "./App.css";
 import { CountriesAPI } from "../src/api/countries-api";
 import CountriesList from "./components/CountriesList/CountriesList";
 import CountriesDetail from "./components/CountriesDetail/CountriesDetail";
@@ -7,8 +7,10 @@ import SearchBar from "./components/SearchBar/SearchBar";
 import Logo from "./components/Logo/Logo";
 
 function App() {
+  const [cargaCountries, setCargaCountries] = useState([])
   const [allCountries, setAllCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState();
+  const [searchResult, setSearchResult] = useState([]);
+  
 
   async function fetchAllCountries() {
     const countries = await CountriesAPI.fetchAllCountries();
@@ -19,49 +21,52 @@ function App() {
 
   async function fetchByTitle(title) {
     const searchResponse = await CountriesAPI.fetchByName(title);
-    try {
-      if (searchResponse.length > 0) {
-        setAllCountries(searchResponse);
+    console.log("Search ",searchResponse)    
+      if (searchResponse) {
+        setSearchResult(searchResponse);
       }
-    } catch (error) {
-      alert("No se encontró ese país");
-    }
+      console.log("Result ", searchResult)
   }
 
   useEffect(() => {
-    if (selectedCountry) {
-      setSelectedCountry(selectedCountry);
-    }
-  }, [selectedCountry]);
+    setSearchResult(searchResult)
+  }, [setSearchResult, searchResult])
+  
+  
 
   return (
     <div className="App">
-      <div>
+      <div className="container-app">
+        <div className="container-search">
         <Logo />
         <p>
           <h2>Busca un país y encuentra sus datos mas relevantes</h2>
         </p>
         <SearchBar onSubmit={fetchByTitle} />
-        <p>También puede ver la lista completa de paises</p>
-        <div>
-          {!allCountries.length ? (
+        <div>        
+          {!allCountries.length || !searchResult.length ? (
+            <div>
+              <p>También puede ver la lista completa de paises</p>
             <input
               type="button"
               value="Ver todos los paises"
               onClick={() => fetchAllCountries()}
             />
+            </div>
           ) : (
             <input
               type="button"
-              value="Clear All Countries"
+              value="Borrar resultados"
               onClick={() => setAllCountries([])}
             />
           )}
+          </div>
         </div>
-        <div>
-          {selectedCountry && <CountriesDetail countrie={selectedCountry} />}
-        </div>
+        <div className="container-resultados">
         {allCountries.length !== 0 && <CountriesList countrie={allCountries} />}
+        {searchResult.length ? (<CountriesDetail countrie={searchResult} />): (<></>)}
+
+        </div>       
       </div>
     </div>
   );

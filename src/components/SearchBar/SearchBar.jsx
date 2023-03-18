@@ -1,21 +1,18 @@
-import { Search as SearchIcon } from "react-bootstrap-icons";
-
+import s from "./SearchBar.module.css"
 
 export default function SearchBar({ onSubmit }) {
     function submit(e) {
-      e.preventDefault();
         if (e.key === "Enter" && e.target.value.trim() !== "") {
           onSubmit(e.target.value);
         }
       }
   return (
-    <>
-    <SearchIcon size={15}  />
+    <>    
     <input
       onKeyUp={submit}
-      className=""
+      className={s.input}
       type="text"
-      placeholder={"Busca un pais"}
+      placeholder={"Busca un pais..."}
     />
   </>
   )

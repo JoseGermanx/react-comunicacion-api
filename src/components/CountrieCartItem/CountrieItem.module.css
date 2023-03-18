@@ -1,6 +1,8 @@
 .countries_list_container {
     padding: 20px;
-   
+    cursor: pointer;
+    background-color: aliceblue;
+    padding: 10px 10px 10px 10px; 
     
 }
 

@@ -1,33 +1,40 @@
 import React from "react";
 
-export default function CountriesDetail({ countrie }) {
+export default function CountriesDetalles({ countrie }) {
+  console.log("CountriesDet ", countrie[0])
+  const detail = countrie;
+  console.log(detail)
   return (
     <div>
-      <div>
-        {countrie.name.common}
-        <h3>Capital: {countrie.capital}</h3>
-        <div className="bloque-der">
+      { detail && detail.map(() => {
+        <div key={detail.id}>
+        {/* <h1>{detail.name.common}</h1> */}
+        <h3>Capital: {detail.capital}</h3>
+        <div>
           <div>
             <span>
-              <h2>Datos relevantes sobre {countrie.name.common}</h2>
+              {/* <h2>Datos relevantes sobre {detail.name.common}</h2> */}
             </span>
           </div>
-          <div className="span-text">
+          <div>
             <span>
-              Continente:&nbsp;<p>{countrie.continente}</p>
+              Continente:&nbsp;<p>{detail.continente}</p>
             </span>
             <span>
-              Región:&nbsp;<p>{countrie.subregion}</p>
+              Región:&nbsp;<p>{detail.subregion}</p>
             </span>
             <span>
-              Población:&nbsp;<p>{countrie.poblacion} habitantes</p>
+              Población:&nbsp;<p>{detail.poblacion} habitantes</p>
             </span>
             <span>
-              Área:&nbsp;<p>{countrie.area} km2</p>
+              Área:&nbsp;<p>{detail.area} km2</p>
             </span>
           </div>
         </div>
       </div>
+        
+        })}
+      
     </div>
   );
 }

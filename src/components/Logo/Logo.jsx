@@ -1,8 +1,8 @@
 import React from 'react'
-import s from './Logo.modules.css'
+import s from './Logo.modules.css?inline'
 
 export default function Logo() {
   return (
-    <div>Where<span className={s.app}>Is?</span></div>
+    <div><h1>Where<span className={s.app}>Is?</span></h1></div>
   )
 }
