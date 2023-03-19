@@ -37,6 +37,13 @@ function App() {
     setAllCountries([]);
   }
 
+  const cleanStates = () => {
+    setAllCountries([]);
+    setSearchResult([]);
+    setClickCountrie([]);
+  }
+
+
   useEffect(() => {
     setClickCountrie(clickCountrie);
   }, [setClickCountrie, clickCountrie]);
@@ -68,10 +75,7 @@ function App() {
               <input
                 type="button"
                 value="Borrar resultados"
-                onClick={() => {
-                  setAllCountries([]);
-                  setSearchResult([]);
-                }}
+                onClick={cleanStates}
               />
             )}
           </div>
