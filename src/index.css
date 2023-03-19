@@ -31,7 +31,6 @@ body {
   min-height: 100vh;
   background-image: url("https://res.cloudinary.com/dh6ipg8bj/image/upload/v1678995361/proyectos-porfolio-bootcamps/fondo_app.jpg");
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-position: center;
   background-size: cover;
 }
