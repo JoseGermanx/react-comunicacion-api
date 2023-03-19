@@ -1,0 +1,9 @@
+.container_detail {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px 8px 8px 8px;
+    background-color: beige;
+    color: black;
+    margin: 15px;
+    padding: 30px;
+}

@@ -16,9 +16,15 @@ export default function CountrieItem({ countrie }) {
           alt={countrie.name.common}
           className={s.img_countrie}         
         />
+        <h3>{countrie.name.common}</h3>
+        <div className={s.capital}>
+        <h5>Capital:&nbsp;</h5>
         <p>{countrie.capital}</p>
-        <p>{countrie.continente}</p>
-        <p>{countrie.name.common}</p>
+        </div>
+        <div className={s.continente}>
+        <h5>Continente:&nbsp;</h5>
+        <p>{countrie.continents[0]}</p>
+        </div>       
       </div>
     </div>
   );

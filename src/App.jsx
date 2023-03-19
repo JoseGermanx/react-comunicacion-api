@@ -19,12 +19,13 @@ function App() {
     }
   }
 
-  async function fetchByTitle(countrie) {
+  async function fetchByName(countrie) {
     const searchResponse = await CountriesAPI.fetchByName(countrie);
     console.log("Search ", searchResponse);
     if (searchResponse) {
       setSearchResult(searchResponse);
       setAllCountries([]);
+      setClickCountrie([]);
     } else {
       alert("País no encontrado");
       console.log("Result ", searchResult);
@@ -60,7 +61,7 @@ function App() {
           <div>
             <h2>Busca un país y encuentra sus datos mas relevantes</h2>
           </div>
-          <SearchBar onSubmit={fetchByTitle} />
+          <SearchBar onSubmit={fetchByName} />
           <div>
             {!allCountries.length ? (
               <div>

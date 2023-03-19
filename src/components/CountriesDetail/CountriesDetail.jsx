@@ -1,4 +1,5 @@
 import React from "react";
+import s from "./CountriesDetail.module.css"
 
 export default function CountriesDetalles({ countrie }) {
 
@@ -8,13 +9,11 @@ export default function CountriesDetalles({ countrie }) {
     <div>
       { detail.map((detail, key) => {
         return (
-        <div key={key}>
-        <h1>{detail.name.common}</h1>
+        <div key={key} className={s.container_detail}>
         <img
           src={detail.flags.png}
           alt="Pais"       
-        />
-        <h3>Capital: {detail.capital}</h3>
+        />       
         <div>
           <div>
             <span>
@@ -22,6 +21,7 @@ export default function CountriesDetalles({ countrie }) {
             </span>
           </div>
           <div>
+            <h3>Capital: {detail.capital}</h3>
             <span>
               Continente:&nbsp;<p>{detail.continents[0]}</p>
             </span>
