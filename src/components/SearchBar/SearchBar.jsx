@@ -13,7 +13,7 @@ export default function SearchBar({ onSubmit }) {
     <input
       onKeyUp={submit}
       className={s.input}
-      type="text"
+      type="search"
       placeholder={"Busca un pais..."}
     />
   </>
