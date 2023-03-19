@@ -1,7 +1,5 @@
 .countries_list {   
-    text-decoration: none;
-    color: rgb(23, 3, 3);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

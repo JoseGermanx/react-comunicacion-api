@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.container_resultados_list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 15px 15px 15px 15px; 
+}

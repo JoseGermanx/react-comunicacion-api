@@ -1,14 +1,14 @@
 import React from "react";
 
 export default function CountriesDetalles({ countrie }) {
-  console.log("CountriesDet ", countrie[0])
+
   const detail = countrie;
-  console.log(detail)
+ 
   return (
     <div>
-      { detail.map((detail) => {
+      { detail.map((detail, key) => {
         return (
-        <div key={detail.id}>
+        <div key={key}>
         <h1>{detail.name.common}</h1>
         <img
           src={detail.flags.png}

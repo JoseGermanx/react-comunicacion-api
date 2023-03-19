@@ -6,9 +6,9 @@ export default function CountrieItem({ countrie }) {
  
 
   return (
-    <div className={s.countries_list_container}>
+    <div className={s.countries_list_container} >
       <div
-        key={countrie.id}
+        key={countrie.cca3}
         className={s.countrie}               
       >
         <img
