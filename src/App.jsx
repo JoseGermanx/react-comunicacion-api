@@ -5,6 +5,7 @@ import CountriesList from "./components/CountriesList/CountriesList";
 import CountriesDetail from "./components/CountriesDetail/CountriesDetail";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Logo from "./components/Logo/Logo";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const [allCountries, setAllCountries] = useState([]);
@@ -21,14 +22,12 @@ function App() {
 
   async function fetchByName(countrie) {
     const searchResponse = await CountriesAPI.fetchByName(countrie);
-    console.log("Search ", searchResponse);
     if (searchResponse) {
       setSearchResult(searchResponse);
       setAllCountries([]);
       setClickCountrie([]);
     } else {
       alert("País no encontrado");
-      console.log("Result ", searchResult);
     }
   }
 
@@ -102,6 +101,7 @@ function App() {
           )}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
