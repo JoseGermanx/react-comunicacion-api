@@ -4,7 +4,7 @@ export default function SearchBar({ onSubmit }) {
     function submit(e) {
       e.preventDefault();
         if (e.key === "Enter" && e.target.value.trim() !== "") {
-          onSubmit(e.target.value);
+          onSubmit(e.target.value.trim());
           e.target.value  = "";
         }
       }
