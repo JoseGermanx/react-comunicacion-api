@@ -24,7 +24,6 @@ export default defineConfig({
     moduleBundling: true,
     prerenderPaths: ["/"],
     modulePreload: true,
-    outDir: "build",
     devCode: true,
     debug: true,
   },
