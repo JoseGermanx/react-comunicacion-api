@@ -5,18 +5,15 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/app',
   server: {
     port: 4000,
   },
-  preview: {
-    port: 4270,
-  },
-  build: {
+   build: {
     incremental: true,
     babel: {
       presets: ["@babel/preset-env", "@babel/preset-react"],
     },
-    
     cache: true,
     minify: true,
     mode: "production",
