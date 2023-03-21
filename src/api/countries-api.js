@@ -6,10 +6,8 @@ export class CountriesAPI {
   static async fetchAllCountries() {
     try {
       const response = await axios.get(`${API_URL}/all`);
-      console.log(response);
       return response.data;
     } catch (e) {
-      console.log(e);
     }   
   }
 
@@ -20,7 +18,6 @@ export class CountriesAPI {
       );
       return response.data;
     } catch (e) {
-      console.log(e);
     }
   }
 }
