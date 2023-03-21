@@ -5,8 +5,6 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  //propiedad nueva agregada para definir la ruta en la que carga la app
-  base: '/app',
   server: {
     port: 4000,
   },
