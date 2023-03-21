@@ -69,14 +69,18 @@ function App() {
                   type="button"
                   value="Ver todos los paises"
                   onClick={() => fetchAllCountries()}
+                  className="homeButton"
                 />
               </div>
             ) : (
+              <div>
               <input
                 type="button"
                 value="Borrar resultados"
                 onClick={cleanStates}
+                className="homeButton"
               />
+              </div>
             )}
           </div>
         </div>
